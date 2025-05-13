@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRouter = require('./routers/auth.router');
 const channelsRouter = require('./routers/channels.router');
+const messagesRouter = require('./routers/messages.router');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", authRouter)
 app.use("/channels", channelsRouter)
+app.use("/messages", messagesRouter)
 
 app.use((error, req, res, next) => {
 

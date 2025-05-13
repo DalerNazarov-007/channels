@@ -12,8 +12,44 @@
 				{
 					"name": "auth",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJmNWZjNmU2NjcyMGYyNjgwMWIxMiIsImlhdCI6MTc0NzEzOTI4MSwiZXhwIjoxNzQ3MTQwMTgxfQ.oqja9jMlb1hrnjBd6Mv5CL8WwzHbjr2RKG7TkX0zUuQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Janson",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "janson",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
 					},
 					"response": []
 				}
@@ -25,16 +61,100 @@
 				{
 					"name": "Creating a channel",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJmNWI3NmU2NjcyMGYyNjgwMWIwZSIsImlhdCI6MTc0NzEzOTg2MiwiZXhwIjoxNzQ3MTQwNzYyfQ.b-vVJvOJBCO4syykIeBsvitqcIXniAyHUhiftBOKK1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "RussianEdu",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "private",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Join us and learn new things in russian everyday",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/channels",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"channels"
+							]
+						}
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "New Folder",
-			"item": []
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Adding a new message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJmNWI3NmU2NjcyMGYyNjgwMWIwZSIsImlhdCI6MTc0NzEzOTg2MiwiZXhwIjoxNzQ3MTQwNzYyfQ.b-vVJvOJBCO4syykIeBsvitqcIXniAyHUhiftBOKK1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "I like this channel",
+									"type": "text"
+								},
+								{
+									"key": "channelId",
+									"value": "68233c29e2276277d015da02",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/messages",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

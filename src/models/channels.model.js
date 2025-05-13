@@ -1,3 +1,4 @@
+const { forbidden } = require("joi");
 const { Schema, default: mongoose } = require("mongoose");
 
 const channelSchema = new Schema({
@@ -19,6 +20,7 @@ const channelSchema = new Schema({
     ownerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+        forbidden: true
     },     
     members: [{
         type: mongoose.Schema.Types.ObjectId,

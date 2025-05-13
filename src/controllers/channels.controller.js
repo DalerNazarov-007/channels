@@ -2,6 +2,7 @@ const express = require("express");
 const Joi = require("joi");
 const channelModel = require("../models/channels.model");
 const { channelValid, channelValidUpdate } = require("../validation/channels.validation");
+const userModel = require("../models/users.model");
 
 
 async function getAllChannels(req, res) {
@@ -22,12 +23,16 @@ async function getOneById(req, res) {
 }
 
 async function createNewChannel(req, res) {
-        const data = await channelValid.validateAsync(req.body);
-        channel.ownerId = req.user.id;
-        const channel = new channelModel({ ...data, ownerId: req.user.id });
-        await channel.save();
-        res.status(201).send(channel);
+    const data = await channelValid.validateAsync(req.body)
+    const userId = req.user.id
 
+    const newChannel = new channelModel({
+        ...data,
+        ownerId: userId
+    }) 
+
+    await newChannel.save()
+    res.send(newChannel)
 }
 
 async function editChannel(req, res) {

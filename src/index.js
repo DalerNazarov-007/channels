@@ -24,6 +24,7 @@ app.use((error, req, res, next) => {
     }
     else{
         return res.status(500).send({ message: "Internal Server Error" })
+        
     }
 })
 

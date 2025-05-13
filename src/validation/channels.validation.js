@@ -4,7 +4,7 @@ const channelValid = Joi.object({
     title: Joi.string().min(1).max(100).required(),
     type: Joi.string().valid("private", "public").required(),
     description: Joi.string().min(1).max(150).required(),
-    ownerId: Joi.string().required(),
+    ownerId: Joi.string().forbidden(),
     createdAt: Joi.date().default(Date.now),
 }).required()
 
